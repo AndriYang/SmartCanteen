@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.garyo.smartcanteen.MainActivity">
+
+    <!-- "Mark Favorite", should appear as action button if possible -->
+    <item
+        android:title=""
+        android:id="@+id/settings_activity"
+        android:icon="@drawable/ic_settings_white_24dp"
+
+        app:showAsAction="ifRoom"/>
+
+    <!-- Settings, should always be in the overflow -->
+</menu>
