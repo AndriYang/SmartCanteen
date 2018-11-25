@@ -31,6 +31,8 @@ Enter a commit message explaining what you have done.
 
 **Important:** ensure your code works by running.
 
+Push pushes the code onto gihub
+
 **DO NOT PUSH** if it fails to run.
 
 vcs->git->push
