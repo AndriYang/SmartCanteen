@@ -44,7 +44,7 @@ vcs->git->push
 
 ## Making changes from second time onwards
 
-###Pull
+### Pull
 
 **ALWAYS PULL** before doing anything. vcs->git->pull 
 
