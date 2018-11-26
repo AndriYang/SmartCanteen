@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "724601251558",
+    "firebase_url": "https://sutd-smart-canteen.firebaseio.com",
+    "project_id": "sutd-smart-canteen",
+    "storage_bucket": "sutd-smart-canteen.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724601251558:android:2388ac50c75d1d68",
+        "android_client_info": {
+          "package_name": "com.example.garyo.smartcanteen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724601251558-mss2t4au4pdu0q4uo005rni3adahrmbh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.garyo.smartcanteen",
+            "certificate_hash": "b4b55fb7418469d1583a8e1ac752df8d7627fd69"
+          }
+        },
+        {
+          "client_id": "724601251558-2u53s5gl88a67b72vmo0dodb3ullqpdi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA9hXTi4gZap8wvZ14XLILqEbpgbLexYU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724601251558-2u53s5gl88a67b72vmo0dodb3ullqpdi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
