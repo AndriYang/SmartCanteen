@@ -10,7 +10,8 @@ $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 ```
 
-Clone the repository.
+Clone the repository to your desired folder.(open git bash on your desired folder)
+
 ```
 $ git clone https://github.com/garyongguanjie/SmartCanteen.git
 ```
@@ -19,6 +20,8 @@ $ git clone https://github.com/garyongguanjie/SmartCanteen.git
 Open up the project on Android Studio and make the changes.
 
 Provide sufficient comments if code is complex.
+
+### Commit
 
 Android Studio -> vcs -> commit 
 
@@ -30,6 +33,8 @@ Enter a commit message explaining what you have done.
 
 
 **Important:** ensure your code works by running.
+
+### Push
 
 Push pushes the code onto gihub
 
