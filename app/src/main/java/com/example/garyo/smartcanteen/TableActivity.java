@@ -22,11 +22,11 @@ public class TableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table);
         intent = getIntent();
-        String s = intent.getStringExtra("table");
+        final String TABLE_NAME = intent.getStringExtra("table");
         textView1 = findViewById(R.id.specified_table);
-        textView1.setText(s);
+        textView1.setText(TABLE_NAME);
         mValueView = (TextView) findViewById(R.id.tableView);
-        mRef = new Firebase("https://sutd-smart-canteen.firebaseio.com/Table1"); //Getting data from firebase
+        mRef = new Firebase("https://smart-canteen-45be9.firebaseio.com/"+TABLE_NAME); //Getting data from firebase
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) //updating the textview in realtime
