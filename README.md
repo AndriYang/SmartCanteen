@@ -44,7 +44,9 @@ vcs->git->push
 
 ## Making changes from second time onwards
 
-vcs->git->pull 
+###Pull
+
+**ALWAYS PULL** before doing anything. vcs->git->pull 
 
 This is done to get the latest copy from github.
 
