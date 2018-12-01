@@ -6,4 +6,14 @@
     <color name="colorGreen">#2da93f</color>
     <color name="colorRed">#fa1c1c</color>
     <color name="colorGreenTable">#9bedaa</color>
+
+    <color name="colorPrimary1">#848cb7</color>
+    <color name="colorPrimaryDark1">#6d749f</color>
+    <color name="colorRed1">#ff3943</color>
+    <color name="colorRedDark">#801b20</color>
+    <color name="colorGreenLight">#abffc0</color>
+    <color name="colorGreen1">#3eb959</color>
+    <color name="colorGreen2">#FF4081</color>
+    <color name="colorWhite">#ffffff</color>
+
 </resources>
