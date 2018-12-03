@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements MyFirebase {
             cardview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     Intent intent = new Intent(MainActivity.this,TableActivity.class);
                     intent.putExtra("table",((TextView)cardview.findViewById(R.id.table_name)).getText().toString());
                     //this puts the table name from the card into the extra
@@ -77,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements MyFirebase {
                 }
             });
         }
-
     }
 
 
