@@ -11,9 +11,13 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TableActivity extends AppCompatActivity {
     //todo graph and other details
@@ -22,6 +26,7 @@ public class TableActivity extends AppCompatActivity {
     private TextView mValueView;
     private Firebase mRef;
     LineGraphSeries series;
+    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +39,29 @@ public class TableActivity extends AppCompatActivity {
         textView1.setText(TABLE_NAME);
 
         series = new LineGraphSeries();
-
+        series.setDrawDataPoints(true);
+        series.setDrawAsPath(true);
         GraphView myGraph = findViewById(R.id.myGraph);
         myGraph.addSeries(series);
         mValueView = (TextView) findViewById(R.id.tableTextView);
         mRef = new Firebase("https://smart-canteen-45be9.firebaseio.com/" + TABLE_NAME); //Getting data from firebase
+
+        myGraph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter(){
+            @Override
+            public String formatLabel(double value, boolean isValueX) {
+
+                if(isValueX) {
+                    return sdf.format(new Date((long) value));
+                } else{
+                    return super.formatLabel(value, isValueX);
+                }
+            }
+        });
+
+
+
+
+
 
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
