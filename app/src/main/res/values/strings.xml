@@ -12,4 +12,5 @@
         Eco Seat tells you which saves the most electricity
     </string>
     <string name="eco_seat">Seat Here!</string>
+    <string name="firebase_url">"https://smart-canteen-45be9.firebaseio.com/"</string>
 </resources>

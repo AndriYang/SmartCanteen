@@ -39,7 +39,7 @@
                     android:src="@drawable/ic_people_black_24dp"/>
 
                 <TextView
-                    android:id="@+id/tableTextView"
+                    android:id="@+id/tableTVnumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"

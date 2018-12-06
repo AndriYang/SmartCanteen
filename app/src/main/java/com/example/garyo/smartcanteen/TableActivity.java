@@ -23,8 +23,12 @@ public class TableActivity extends AppCompatActivity {
     //todo graph and other details
     Intent intent;
     TextView textView1;
-    private TextView mValueView;
+    TextView textView2;
+
     private Firebase mRef;
+    private Firebase tableListRef;
+    private Firebase currentTableRef;
+
     LineGraphSeries series;
     SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
 
@@ -38,55 +42,49 @@ public class TableActivity extends AppCompatActivity {
         textView1 = findViewById(R.id.specified_table);
         textView1.setText(TABLE_NAME);
 
+        textView2 = findViewById(R.id.tableTVnumber);
+
+        //setting up datapoints
         series = new LineGraphSeries();
         series.setDrawDataPoints(true);
         series.setDrawAsPath(true);
+
+        //this plots the graph
+
         GraphView myGraph = findViewById(R.id.myGraph);
         myGraph.addSeries(series);
-        mValueView = (TextView) findViewById(R.id.tableTextView);
-        mRef = new Firebase("https://smart-canteen-45be9.firebaseio.com/" + TABLE_NAME); //Getting data from firebase
 
-        myGraph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter(){
+
+        mRef = new Firebase(getResources().getString(R.string.firebase_url)); //Getting data from firebase
+        tableListRef = mRef.child(TABLE_NAME);
+        //this formats the labels on the table
+        myGraph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
             @Override
             public String formatLabel(double value, boolean isValueX) {
-
-                if(isValueX) {
+                if (isValueX) {
                     return sdf.format(new Date((long) value));
-                } else{
+                } else {
                     return super.formatLabel(value, isValueX);
                 }
             }
         });
+        makeGraphFromFireBase();
 
-
-
-
-
-
-        mRef.addValueEventListener(new ValueEventListener() {
+        //gets current number of people at the table
+        currentTableRef = mRef.child("current").child(TABLE_NAME);
+        currentTableRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) //updating the textview in realtime
-
-            {
-                int index = 0;
-                DataPoint[] dp = new DataPoint[(int) dataSnapshot.getChildrenCount()];
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    Log.i("TAG", "key: " + ds.getKey()
-                            + " value: " + ds.getValue());
-                    PointValue pointValue = ds.getValue(PointValue.class);
-                    //create TextView widget
-                    dp[index] = new DataPoint(pointValue.getxValue(), pointValue.getyValue());
-                    index++;
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null) {
+                    String number = dataSnapshot.getValue().toString();
+                    textView2.setText(number);
                 }
-                series.resetData(dp);
-
             }
-
             @Override
             public void onCancelled(FirebaseError firebaseError) {
-
             }
         });
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -100,5 +98,29 @@ public class TableActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void makeGraphFromFireBase() {
+        tableListRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) //updating the textview in realtime
+
+            {
+                int index = 0;
+                DataPoint[] dp = new DataPoint[(int) dataSnapshot.getChildrenCount()];
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Log.i("firebaseT", "key: " + ds.getKey()
+                            + " value: " + ds.getValue());
+                    PointValue pointValue = ds.getValue(PointValue.class);
+                    dp[index] = new DataPoint(pointValue.getxValue(), pointValue.getyValue());
+                    index++;
+                }
+                //reset data to new datapoint array
+                series.resetData(dp);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+            }
+        });
+    }
 
 }

@@ -5,5 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Settings">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:id="@+id/settingsET"
+            android:inputType="number"
+            android:hint="Set Canteen Capacity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/set_button"
+            android:text="SET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

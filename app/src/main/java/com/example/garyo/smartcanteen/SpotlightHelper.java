@@ -33,12 +33,12 @@ public class SpotlightHelper {
                 .setOnSpotlightStateListener(new OnSpotlightStateChangedListener() {
                     @Override
                     public void onStarted() {
-                        Toast.makeText(activity, "spotlight is started", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(activity, "spotlight is started", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onEnded() {
-                        Toast.makeText(activity, "spotlight is ended", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(activity, "spotlight is ended", Toast.LENGTH_SHORT).show();
                     }
                 });
         return spotlight;
