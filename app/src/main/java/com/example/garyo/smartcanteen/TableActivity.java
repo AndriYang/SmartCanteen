@@ -46,8 +46,7 @@ public class TableActivity extends AppCompatActivity {
 
         //setting up datapoints
         series = new LineGraphSeries();
-        series.setDrawDataPoints(true);
-        series.setDrawAsPath(true);
+
 
         //this plots the graph
 
