@@ -104,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
                          circleFillGraph.setProgress(totalNumberOfPeople*100/capacity);
                      }catch (NumberFormatException e){
                          e.printStackTrace();
+                     }catch(ArithmeticException e){
+                         e.printStackTrace();
+                         capacity = 100;
                      }
                  }
                  Log.i("test2",minView.toString());
