@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
                 totalNumberOfPeople = 0;
                 View minView = null;
+                int min = 9999999;
                  for(DataSnapshot ds : dataSnapshot.getChildren()){
                      Log.i("firebaseM", "key: " + ds.getKey()
                              + " value: " + ds.getValue());
@@ -94,14 +95,16 @@ public class MainActivity extends AppCompatActivity {
                          int x = Integer.parseInt(ds.getValue().toString());
 
                          //get minimum and setting on click listener
-                         int min = 9999999;
-                         if (x<min){
+                         if (x<min&&x!=0){
                              min = x;
+                             Log.i("test",min+"");
                              minView = tableMap.get(ds.getKey().toString());
                          }
                          //get total
                          totalNumberOfPeople+= x;
-                         circleFillGraph.setProgress(totalNumberOfPeople*100/capacity);
+                         int percentage = totalNumberOfPeople*100/capacity;
+                         if (percentage>= 100)percentage =100;
+                         circleFillGraph.setProgress(percentage);
                      }catch (NumberFormatException e){
                          e.printStackTrace();
                      }catch(ArithmeticException e){
@@ -109,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
                          capacity = 100;
                      }
                  }
-                 Log.i("test2",minView.toString());
                  setEcoButton(minView);
             }
             @Override
@@ -161,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
     //this is done so that the code looks neater
     private void setEcoButton(View min){
+        if (min==null)return;
         final View minView = min;
         ecoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,6 +182,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }
 
