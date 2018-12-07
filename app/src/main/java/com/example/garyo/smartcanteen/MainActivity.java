@@ -46,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        mainLayout = findViewById(R.id.main_layout);
+        //allows user to set canteen capacity default to 100
+        prefs = getSharedPreferences("filename",MODE_PRIVATE);
+        capacity = prefs.getInt(Settings.CAPACITY_KEY,100);
 
         ecoButton = findViewById(R.id.eco_button);
         Table1 = findViewById(R.id.table1_card);
@@ -61,10 +63,15 @@ public class MainActivity extends AppCompatActivity {
         tableMap.put("Table 4",Table4);
 
         circleFillGraph = findViewById(R.id.circle_progress);
+        circleFillGraph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,Canteen.class);
+                startActivity(intent);
+            }
+        });
 
-        //allows user to set canteen capacity default to 100
-        prefs = getSharedPreferences("filename",MODE_PRIVATE);
-        capacity = prefs.getInt(Settings.CAPACITY_KEY,100);
+
 
         Log.i("prefs",capacity+"");
 

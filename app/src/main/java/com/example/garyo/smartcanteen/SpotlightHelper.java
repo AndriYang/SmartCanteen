@@ -18,6 +18,7 @@ import com.takusemba.spotlight.shape.Shape;
 import com.takusemba.spotlight.target.SimpleTarget;
 /*
 This is the spotlight helper class
+
 View documentation here
 https://github.com/TakuSemba/Spotlight
  */
@@ -86,6 +87,4 @@ public class SpotlightHelper {
             return (int) width;
         }
     }
-
-
 }

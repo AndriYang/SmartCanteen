@@ -51,8 +51,8 @@ public class TableActivity extends AppCompatActivity {
         //this plots the graph
 
         GraphView myGraph = findViewById(R.id.myGraph);
-        myGraph.addSeries(series);
 
+        myGraph.addSeries(series);
 
         mRef = new Firebase(getResources().getString(R.string.firebase_url)); //Getting data from firebase
         tableListRef = mRef.child(TABLE_NAME);
@@ -75,8 +75,9 @@ public class TableActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
-                    String number = dataSnapshot.getValue().toString();
-                    textView2.setText(number);
+                    //note dataSnapshot.getValue returns a long
+                    int number = Integer.valueOf(dataSnapshot.getValue()+"");
+                    textView2.setText(number+"");
                 }
             }
             @Override
