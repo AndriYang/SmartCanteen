@@ -1,5 +1,4 @@
 # SmartCanteen
-## How to use git
 
 
 Clone the repository to your desired folder.
