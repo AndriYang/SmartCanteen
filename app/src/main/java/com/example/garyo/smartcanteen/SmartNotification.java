@@ -66,6 +66,7 @@ public class SmartNotification extends Service {
                         .setAutoCancel(true)
                         .setPriority(Notification.PRIORITY_DEFAULT)
                         .setDefaults(Notification.DEFAULT_ALL)
+                        .setOnlyAlertOnce(true)
                         .setSmallIcon(R.drawable.white_leaf);
                 notification = builder.build();
                  manager = (NotificationManager)
@@ -88,7 +89,7 @@ public class SmartNotification extends Service {
                                 totalNumberOfPeople+= x;
                         }
                         if(totalNumberOfPeople<=limit){
-                            SmartNotification.this. manager.notify(1234, notification);
+                            SmartNotification.this.manager.notify(1234, notification);
                         }
                     }
                     @Override
