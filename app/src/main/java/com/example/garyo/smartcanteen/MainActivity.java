@@ -27,10 +27,10 @@ import java.util.HashMap;
 
 //todo implement firebase methods
 public class MainActivity extends AppCompatActivity {
+
     CircleProgress circleFillGraph;
     Button ecoButton;
     CardView Table1,Table2,Table3,Table4;
-    LinearLayout mainLayout;
     SimpleTarget currentTarget;
     Spotlight currentSpotlight;
     Firebase mRef,currentRef;
@@ -70,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
 
         Log.i("prefs",capacity+"");
 

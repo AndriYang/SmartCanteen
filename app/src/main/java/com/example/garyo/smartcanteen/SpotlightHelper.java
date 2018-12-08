@@ -17,7 +17,7 @@ import com.takusemba.spotlight.shape.Circle;
 import com.takusemba.spotlight.shape.Shape;
 import com.takusemba.spotlight.target.SimpleTarget;
 /*
-This is the spotlight helper class
+This is the spotlight helper class written by me
 
 View documentation here
 https://github.com/TakuSemba/Spotlight
@@ -65,6 +65,7 @@ public class SpotlightHelper {
                 .build();
         return simpleTarget;
     }
+    //inner class used to create shape for spotlight
     class RectangleShape implements Shape{
         private float width;
         private float height;
@@ -76,7 +77,6 @@ public class SpotlightHelper {
         public void draw(Canvas canvas, PointF point, float value, Paint paint) {
             canvas.drawRect(point.x, point.y,point.x+width*value,point.y+height*value,paint);
         }
-
         @Override
         public int getHeight() {
             return (int) height;

@@ -20,7 +20,21 @@
             android:text="SET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-
+        <TextView
+            android:textAlignment="center"
+            android:text="BETA \n Runs in background \nNotify user if number of people in \ncanteen is less than "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:inputType="number"
+            android:id="@+id/noti_limit"
+            android:hint="key in number of here"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/notification_button"
+            android:text="notify me"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

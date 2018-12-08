@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-//todo set capacity and smart reminder and any other settings
-//todo use sharedPreferences
 /*
 my plan here is to add the capacity of the table as shared preferences and
 also a reminder smart reminder that alerts the user when the canteeen is not crowded
@@ -19,8 +17,8 @@ percentage of "crowdedness" should be set by user
  */
 public class Settings extends AppCompatActivity {
     public static final String CAPACITY_KEY = "capacity";
-    EditText setCapacityET;
-    Button setButton;
+    EditText setCapacityET, notiLimit;
+    Button setButton, notiButton;
     SharedPreferences prefs;
     int capacity;
 
@@ -30,7 +28,6 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         setCapacityET = findViewById(R.id.settingsET);
         setButton = findViewById(R.id.set_button);
-
         setButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +40,22 @@ public class Settings extends AppCompatActivity {
                 }
             }
         });
+        notiLimit = findViewById(R.id.noti_limit);
+        notiButton = findViewById(R.id.notification_button);
+        notiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    int limit = Integer.parseInt(notiLimit.getText().toString());
+                    Intent intent = new Intent(Settings.this, SmartNotification.class);
+                    intent.putExtra("limit", limit);
+                    startService(intent);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -59,10 +72,10 @@ public class Settings extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        SharedPreferences prefs = getSharedPreferences("filename",MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("filename", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = prefs.edit();
         prefsEditor.putInt(CAPACITY_KEY, capacity);
-        Log.i("pref",capacity+"");
+        Log.i("pref", capacity + "");
         prefsEditor.apply();
     }
 }
